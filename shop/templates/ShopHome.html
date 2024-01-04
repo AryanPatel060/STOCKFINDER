@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    {% if shop_data %}
+    <div class="card p-4 m-5" style="max-width: 500px;">
+<h1>{{shop_details.user.username}}</h1>
+<h1>{{shop_details.shop_type}} </h1>
+        <div id="map2" style="height:300px ; width:600px;"></div>
+        {% if shop_details.shop_image %}
+        <div class="container w-25 h-25">
+            <img src=".{{shop_details.shop_image.url}}" width="300px" alt="img">
+        </div>
+        {% else %}
+        <h4> no img found </h4>
+        {% endif %}
+    </div>
+    {% else %}
+    <p>No Shop Data Found! Please Add a new one.</p>
+    <a href="{% url 'AddShopData' %}">Add Shop Data</a>
+    {% endif %}
+    <a href="{% url 'Additem' %}">Add Item</a>
+    
+</div>
+<script>
+    var map2 = L.map('map2').setView([{{shop_details.latitude}},{{shop_details.longitude}}], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map2);
+    L.marker([{{shop_details.latitude}},{{shop_details.longitude}}]).addTo(map2)
+</script>
+{% endblock body %}
