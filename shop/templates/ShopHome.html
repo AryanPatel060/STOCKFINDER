@@ -5,7 +5,12 @@
     <div class="card p-4 m-5" style="max-width: 500px;">
 <h1>{{shop_details.user.username}}</h1>
 <h1>{{shop_details.shop_type}} </h1>
+        {% if shop_details.latitude %}
         <div id="map2" style="height:300px ; width:600px;"></div>
+        {% else %}
+        <h1>no location data found</h1>
+        {% endif %}
+        
         {% if shop_details.shop_image %}
         <div class="container w-25 h-25">
             <img src=".{{shop_details.shop_image.url}}" width="300px" alt="img">

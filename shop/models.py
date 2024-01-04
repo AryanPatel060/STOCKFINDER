@@ -48,7 +48,7 @@ class Item(models.Model):
     item_name =  models.CharField(max_length=50)
     brand = models.CharField(max_length = 30,null = True , blank = True)
     modal_no = models.CharField(max_length  =30 ,null = True , blank = True)
-    # Item_Category = models.ForeignKey(Item_Category , on_delete = models.SET('NONE'))
+    # item_category = models.ForeignKey(Item_Category , on_delete = models.SET('NONE'))
     price = models.FloatField(null=True)
     quantity = models.CharField(max_length = 30)
     item_image = models.ImageField(upload_to='images/', null=True, blank=True)
