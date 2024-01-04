@@ -149,8 +149,6 @@ def Additem(request):
     items = model.Item.objects.all().order_by("id")
     data={"items":items,"form":form}
 
-
-
     return render(request , 'additem.html', context = data)
 
 
