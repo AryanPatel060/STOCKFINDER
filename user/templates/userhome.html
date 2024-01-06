@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    <div class="card p-4 m-5" style="max-width: 500px;">
+        <h1>Search</h1>
+            <form class="d-flex" action="{% url "userhome" %}" method="POST" enctype="multipart/form-data" role="search">
+            {% csrf_token %}
+                <input class="form-control me-2" type="search" placeholder="Search" name='search' aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+    <div id="map2" style="height:300px ; width:600px;"></div>
+    
+</div>
+
+<script>
+    var map2 = L.map('map2').setView([23.02874500130992	,72.58213806257118], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map2);
+</script>
+{% endblock body  %}
+

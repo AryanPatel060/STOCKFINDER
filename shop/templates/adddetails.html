@@ -22,21 +22,28 @@
       document.addEventListener('DOMContentLoaded', function() {
         var user = document.getElementById('id_user')
             user.required = false;
-        });
+        var lat = document.getElementById('id_latitude').value
+        var lng = document.getElementById('id_longitude').value
 
-    var map = L.map('map').setView([23.031083, 72.580833], 13);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
+        console.log(lat , lng)
+        var marker ;
 
-    map.on('click',(event)=>{
-        lat = event.latlng.lat
-        lng = event.latlng.lng
-        console.log(event.latlng.lat,event.latlng.lng)
-        L.marker([event.latlng.lat,event.latlng.lng]).addTo(map)
-        let latitude=document.getElementById("id_latitude").value=lat
-        let longitude=document.getElementById("id_longitude").value=lng
-    })
+        var map = L.map('map').setView([lat, lng], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        map.on('click',(event)=>{
+            lat = event.latlng.lat
+            lng = event.latlng.lng
+            if (marker) {
+                map.removeLayer(marker);
+            }
+           marker  =  L.marker([lat,lng]).addTo(map)
+            let latitude=document.getElementById("id_latitude").value=lat
+            let longitude=document.getElementById("id_longitude").value=lng
+    });
+});
+
     </script>
 {% endblock body %}
