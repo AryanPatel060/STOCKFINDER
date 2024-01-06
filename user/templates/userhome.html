@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "userbase.html" %}
 {% block body %}
 <div class="container">
     <div class="card p-4 m-5" style="max-width: 500px;">
@@ -6,6 +6,8 @@
             <form class="d-flex" action="{% url "userhome" %}" method="POST" enctype="multipart/form-data" role="search">
             {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="Search" name='search' aria-label="Search">
+                <input class="form-control me-2" type="hidden" id='latitude' name='latitude'>
+                <input class="form-control me-2" type="hidden" id='longitude'  name='longitude' >
                 <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
@@ -14,11 +16,33 @@
 </div>
 
 <script>
-    var map2 = L.map('map2').setView([23.02874500130992	,72.58213806257118], 13);
+    if ('geolocation' in navigator) {
+        // Get the user's current position
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            // Success callback
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+      
+            // Now you have the user's latitude and longitude
+            console.log('Latitude:', latitude);
+            console.log('Longitude:', longitude);
+      
+            // You can use this information as needed, for example, send it to the server.
+          
+
+    var map2 = L.map('map2').setView([latitude	,longitude], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map2);
+    L.marker([latitude,longitude]).addTo(map2)
+
+    var lat = document.getElementById('latitude')
+    lat.value = latitude
+    var lng = document.getElementById('longitude')
+    lng.value = longitude
+})}
 </script>
 {% endblock body  %}
 

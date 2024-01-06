@@ -38,8 +38,7 @@ def loginshop(request):
             # shop = authenticate(username=email, password=password)
             shop  = User.objects.get(email = email)
             # password  = make_password(password)
-            print(password)
-            print(shop.password)
+           
             if(shop.password  == password ):
                 request.session['shopdata'] = data
                 login(request,shop)
