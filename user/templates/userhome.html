@@ -29,6 +29,8 @@
           <p class="card-text">{{key}} km</p>
           <p class="card-text"><small class="text-body-secondary"></small></p>
           <a class="btn btn-primary" href="getroute?shop_id={{value.shop_id}}"  >Route</a>
+          {% comment %} <a class="btn btn-primary" onclick="getroute({{value.shop_id}})">Route</a> {% endcomment %}
+
         </div>
       </div>
     </div>
@@ -99,8 +101,9 @@
       .then(data => {
         latitude = data.latitude
         longitude = data.longitude
+        
        
-        console.log(latitude,longitude);
+
       })
       .catch(error => {
         console.error('Error fetching data:', error);

@@ -2,7 +2,26 @@
 
 <div class="container">
   <div id="map2" style="height: 300px; width: 600px"></div>
-  {{shop_location}} {{ shop_location | json_script:"shop_location"}}
+  {{ shop_location | json_script:"shop_location"}}
+  <div class="container m-5">
+    <h5>shop name :{{ shop_info.user}}</h5>
+    <h5>Distance :{{ shop_location.distance}}</h5>
+    <h5>Phone No.{{ shop_info.phone_no}}</h5>
+    <h5>Shopkeeper name : {{ shop_info.shopkeeper_name}}</h5>
+
+    <h5>shop Type : {{ shop_info.shop_type}}</h5>
+
+    <h5>Opening Time :{{ shop_info.shop_opening_time}}</h5>
+
+    <h5>closing Time :{{ shop_info.shop_closing_time}}</h5>
+
+    <h5>Shop Img :</h5>
+    <img
+      src="media/{{shop_info.shop_image}}"
+      class="img-fluid rounded-start"
+      alt="..."
+    />
+  </div>
 </div>
 
 <script>
@@ -36,9 +55,9 @@
         document.getElementById("shop_location").textContent
       );
 
-      var map2 = L.map("map2").setView([shops.latitude, shops.longitude], 11);
+      var map2 = L.map("map2").setView([shops.latitude, shops.longitude], 13);
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
+        maxZoom: 20,
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map2);
@@ -49,14 +68,15 @@
 
       L.marker([shops.latitude, shops.longitude])
         .addTo(map2)
-        .bindPopup(shop.shop_name);
-      var pointA = new L.LatLng(shop.latitude, shop.longitude);
-      var pointB = new L.LatLng(latitude, longitude);
+        .bindPopup(shops.shop_name);
 
-      var polylinePoints = [pointA, pointB];
+      var polylinePoints = [
+        [shops.latitude, shops.longitude],
+        [latitude, longitude],
+      ];
+      console.log(polylinePoints);
 
-      // Create a polyline with the defined points and add it to the map
-      var polyline = L.polyline(polylinePoints, {color: 'red'}).addTo(map2);
+      var polyline = L.polyline(polylinePoints).addTo(map2);
     });
   }
 </script>

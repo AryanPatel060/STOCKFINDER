@@ -11,7 +11,7 @@ def userhome(request):
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
         user_location = latitude,longitude
-
+        request.session["user_location"] = user_location
         items = Item.objects.filter(item_name__icontains=search)
 
         location_data = []
@@ -65,9 +65,26 @@ def getroute(request):
 
     shop_id = request.GET.get('shop_id')
     shop_info = Shop.objects.get(user = shop_id)
+    user_location = request.session["user_location"]
+    distance  = dst.distance(user_location,[shop_info.latitude,shop_info.longitude]).km
+    distance = round(distance, 3)
+
+    shop_location =  {
+                    'shop_id':shop_id,
+                    'latitude' : shop_info.latitude, 
+                    'longitude' : shop_info.longitude,
+                    'distance' : distance,
+                    }
+    
+    return render(request, 'showroute.html' , context = {'shop_location':shop_location,'shop_info':shop_info})
+
+def getroute2(request):
+
+    shop_id = request.GET.get('shop_id')
+    shop_info = Shop.objects.get(user = shop_id)
     shop_location =  {
                     'shop_id':shop_id,
                     'latitude' : shop_info.latitude, 
                     'longitude' : shop_info.longitude}
-    return render(request, 'showroute.html' , context = {'shop_location':shop_location})
-    
+    # return render(request, 'showroute.html' , context = {'shop_location':shop_location})
+    return JsonResponse(shop_location)
