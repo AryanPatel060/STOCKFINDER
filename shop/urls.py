@@ -12,6 +12,8 @@ urlpatterns = [
     path('logoutshop/',views.logoutshop , name = 'logoutshop'),
     path('addshopdata/',views.AddShopData,name ='AddShopData'),
     path('additem/',views.Additem,name ='Additem'),
+    path('deleteitem',views.deleteitem,name ='Deleteitem'),
+    # path('deleteitem', views.deleteitem, name='delete_item'),
 
 ]
 

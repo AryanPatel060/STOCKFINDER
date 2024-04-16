@@ -10,7 +10,9 @@ class ShopAdmin(admin.ModelAdmin):
 @admin.register(Item)    
 class ItemAdmin(admin.ModelAdmin):
     list_display = ['shop_id', 'item_name','brand' , 'modal_no','price','quantity','item_image','created_at' ,'updated_at']
+    
 # 'Item_Category',
+    
 @admin.register(Item_Category)    
 class Item_CategoryAdmin(admin.ModelAdmin):
     list_display = ['Category_name','price_type','created_at' ,'updated_at']

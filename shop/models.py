@@ -45,13 +45,13 @@ class Item_Category(models.Model):
 class Item(models.Model):
 
     shop_id= models.ForeignKey(Shop,on_delete  = models.CASCADE)
-    item_name =  models.CharField(max_length=50)
+    item_name =  models.CharField(max_length=50,null=True, blank=True)
     brand = models.CharField(max_length = 30,null = True , blank = True)
     modal_no = models.CharField(max_length  =30 ,null = True , blank = True)
     # item_category = models.ForeignKey(Item_Category , on_delete = models.SET('NONE'))
-    price = models.FloatField(null=True)
+    price = models.FloatField(null=True, blank=True)
     quantity = models.CharField(max_length = 30)
-    item_image = models.ImageField(upload_to='images/', null=True, blank=True)
+    item_image = models.ImageField(upload_to='items/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

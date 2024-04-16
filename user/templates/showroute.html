@@ -1,0 +1,84 @@
+{% extends "base.html" %} {% block body %}
+
+<div class="container">
+  <div id="map2" style="height: 300px; width: 600px"></div>
+  {{ shop_location | json_script:"shop_location"}}
+  <div class="container m-5">
+    <h5>shop name :{{ shop_info.user}}</h5>
+    <h5>Distance :{{ shop_location.distance}}</h5>
+    <h5>Phone No.{{ shop_info.phone_no}}</h5>
+    <h5>Shopkeeper name : {{ shop_info.shopkeeper_name}}</h5>
+
+    <h5>shop Type : {{ shop_info.shop_type}}</h5>
+
+    <h5>Opening Time :{{ shop_info.shop_opening_time}}</h5>
+
+    <h5>closing Time :{{ shop_info.shop_closing_time}}</h5>
+
+    <h5>Shop Img :</h5>
+    <img
+      src="media/{{shop_info.shop_image}}"
+      class="img-fluid rounded-start"
+      alt="..."
+    />
+  </div>
+</div>
+
+<script>
+  if ("geolocation" in navigator) {
+    // Get the user's current position
+    navigator.geolocation.getCurrentPosition(function (position) {
+      // Success callback
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // Now you have the user's latitude and longitude
+      console.log("Latitude:", latitude);
+      console.log("Longitude:", longitude);
+
+      // You can use this information as needed, for example, send it to the server.
+
+      var greenIcon = new L.Icon({
+        iconUrl:
+          "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+        shadowUrl:
+          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+      });
+
+      //---------------- user location ----------------//
+
+      let shops = JSON.parse(
+        document.getElementById("shop_location").textContent
+      );
+
+      var map2 = L.map("map2").setView([shops.latitude, shops.longitude], 13);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 20,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map2);
+
+      L.marker([latitude, longitude], { icon: greenIcon })
+        .addTo(map2)
+        .bindPopup("Your Location ");
+
+      L.marker([shops.latitude, shops.longitude])
+        .addTo(map2)
+        .bindPopup(shops.shop_name);
+
+      var polylinePoints = [
+        [shops.latitude, shops.longitude],
+        [latitude, longitude],
+      ];
+      console.log(polylinePoints);
+
+      var polyline = L.polyline(polylinePoints).addTo(map2);
+    });
+  }
+</script>
+
+{% endblock body %}
