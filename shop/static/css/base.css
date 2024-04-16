@@ -1,0 +1,185 @@
+.navbar navbar-expand-lg bg-body-tertiary shadow-lg{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-brand{
+    text-align: left;
+}
+.container-fluid a{
+    font-size: 28px;
+    color:#8b30c2;
+vertical-align:text-top;
+font-family:Limelight;
+line-height:auto;
+border-style:hidden;
+outline:none;
+left:72px;
+top:15px;
+position:absolute;
+width:261px;
+}
+.collapse-navbar-collapse{
+    display: flex;
+    align-items: center;
+    margin-right: 28px;
+}
+.collapse-navbar-collapse ul li a{
+    text-decoration: none;
+    color:#8b30c2;
+    font-size:18px;
+    font-family:Heebo;
+    top:18px;
+    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
+    vertical-align:text-top;
+}
+.collapse-navbar-collapse ul li a:hover{
+    background-color: #e3cef1; 
+    color:#8b30c2; 
+}
+.ellipse1
+{
+/* background-color:#DBB1F5; */
+height:685px;
+width:650px;
+left:0px;
+top:63px;
+position:absolute;
+z-index: -1;
+}
+main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.welcometoproductfinder
+{
+color:#8b30c2;
+text-align:center;
+font-size:47px;
+font-family:Inter;
+line-height:auto;
+width:620px;
+font-weight: 100px;
+}
+.containber2{
+    margin: 80px 50px 50px;
+    width: 700px;
+    height: 600px;
+    padding: 20px 50px;
+
+}
+.description
+{
+color:#515151;
+text-align:left;
+font-size:14px;
+font-family:Inter;
+line-height:auto;
+width:620px;
+padding-top: 8px;
+vertical-align:text-top;
+}
+
+.descriptionbox1
+{
+width:502px;
+height:78px;
+margin-top: 20px;
+}
+.shopname
+{
+color:#5a5a5a;
+text-align:left;
+vertical-align:text-top;
+font-size:16px;
+font-family:Inter;
+line-height:auto;
+width:139px;
+margin: 10px;
+}
+input[type="text"] {
+    background-color:#f0e8f6;
+height:40px;
+width:502px;
+border-radius:13px;
+border-width: 0px;
+padding: 20px;
+}
+
+.emailid
+{
+color:#5a5a5a;
+text-align:left;
+vertical-align:text-top;
+font-size:16px;
+font-family:Inter;
+line-height:auto;
+width:139px;
+margin: 10px;
+}
+input[type="email"] {
+    background-color:#f0e8f6;
+height:40px;
+width:502px;
+border-radius:13px;
+border-width: 0px;
+padding: 20px;
+}
+.password
+{
+color:#5a5a5a;
+text-align:left;
+vertical-align:text-top;
+font-size:16px;
+font-family:Inter;
+line-height:auto;
+width:139px;
+margin: 10px;
+}
+input[type="password"] {
+    background-color:#f0e8f6;
+height:40px;
+width:502px;
+border-radius:13px;
+border-width: 0px;
+padding: 20px;
+}
+
+.button-container
+{
+margin-top: 10px;
+padding:10px;
+display:flex;
+flex-direction:row;
+justify-content:center;
+align-items:center;
+gap:80px;
+position:relative;
+}
+.button-container a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #8b30c2;
+    border: 2px solid #8b30c2;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 80px;
+}
+.button-container button{
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #8b30c2;
+    background-color: white;
+    border: 2px solid #8b30c2;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 80px;
+}

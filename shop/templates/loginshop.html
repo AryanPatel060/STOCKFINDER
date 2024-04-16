@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block body %}
+<main style="display: flex;">
+    <div class="container">
+        <img id='ellipse1' class='ellipse1' src="/static/image/image.png">
+        
+
+    </div>
+    <div class="containber2">
+        <div id='welcometoproductfinder' class='welcometoproductfinder'>Welcome to product finder !</div>
+        <div id='description' class='description'>if you have already register on product finder.<br>please login below.</div>
+
+        <div id='descriptionbox1' class='descriptionbox1' style="margin-top: 40px;">
+            <div id='shopname' class='shopname'>SHOP NAME : </div>
+            <input type="text" id="shopnamebox" required>
+        </div>
+        
+        <div id='descriptionbox1' class='descriptionbox1'>
+            <div id='emailid' class='emailid'>EMAIL ID : </div>
+            <input type="email" id="emailidbox" required>
+        </div>
+
+        <div id='descriptionbox1' class='descriptionbox1'>
+            <div id='password' class='password'>PASSWORD : </div>
+            <input type="password" id="passwordbox" required>
+        </div>
+
+        <div class="button-container">
+            <button onclick="goBack()">Back</button>
+            <!-- <a href="#" id="backbtn" class="button">Back</a> -->
+            <a href="#" id="loginbtn" class="button">Login</a>
+        </div>
+    </div>
+</main>
+    {% endblock body %}
