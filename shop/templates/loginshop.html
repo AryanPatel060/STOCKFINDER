@@ -10,12 +10,31 @@
         <div id='welcometoproductfinder' class='welcometoproductfinder'>Welcome to product finder !</div>
         <div id='description' class='description'>if you have already register on product finder.<br>please login below.</div>
 
+
+        <div class="container">
         <div id='descriptionbox1' class='descriptionbox1' style="margin-top: 40px;">
-            <div id='shopname' class='shopname'>SHOP NAME : </div>
-            <input type="text" id="shopnamebox" required>
+                <h1>login</h1>
+                <form action="{% url 'loginshop' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="shopemail" name="shopemail" >
+                </div>
+              
+                <div id='descriptionbox1' class='descriptionbox1'>
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                        
+                        <div class="button-container">
+                            <button onclick="goBack()">Back</button>
+                            <button type="submit" id="loginbtn" class="button">Submit</button>
+                        </div>
+            </form>
+        </div>
         </div>
         
-        <div id='descriptionbox1' class='descriptionbox1'>
+        {% comment %} <div id='descriptionbox1' class='descriptionbox1'>
             <div id='emailid' class='emailid'>EMAIL ID : </div>
             <input type="email" id="emailidbox" required>
         </div>
@@ -23,13 +42,9 @@
         <div id='descriptionbox1' class='descriptionbox1'>
             <div id='password' class='password'>PASSWORD : </div>
             <input type="password" id="passwordbox" required>
-        </div>
+        </div> {% endcomment %}
 
-        <div class="button-container">
-            <button onclick="goBack()">Back</button>
-            <!-- <a href="#" id="backbtn" class="button">Back</a> -->
-            <a href="#" id="loginbtn" class="button">Login</a>
-        </div>
+        
     </div>
 </main>
     {% endblock body %}
