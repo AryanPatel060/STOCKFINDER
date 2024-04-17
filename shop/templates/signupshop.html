@@ -1,36 +1,45 @@
 {% extends "base.html" %}
 {% block body %}
-<div class="container_signup">
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <div class="card p-4 m-5" style="max-width: 550px;">
-        <h1>signup</h1>
-        <form action="{% url 'signupshop' %}" method="Post">
-            {% csrf_token %}
-        <div class="mb-3">
-            <label for="shopname" class="form-label">shop name</label>
-            <input type="text" class="form-control" id="shopname" name="shopname" >
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="shopemail" name="shopemail" >
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <div class="mb-3">
-            <label for="cpassword" class="form-label">confirm Password</label>
-            <input type="password" class="form-control" id="cpassword" name="cpassword">
-        </div>
-                <button type="submit" class="btn_btn-primary">Submit</button>
-    </form>
-</div>
-</div>
+<main style="display: flex;">
+    <div class="container1_signup">
+        <img id='ellipse1' class='ellipse1' src="/static/image/image.png">
+        <img id='clip' class='clip' src="/static/image/clip.png">
+    </div>
+
+
+
+    <div class="container_signup">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="card p-4 m-5" style="max-width: 600px;">
+            <h1 >signup</h1>
+            <form action="{% url 'signupshop' %}" method="Post">
+                {% csrf_token %}
+            <div class="mb-3">
+                <label for="shopname" class="form-label">shop name</label>
+                <input type="text" class="form-control" id="shopname" name="shopname" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="shopemail" name="shopemail" >
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="mb-3">
+                <label for="cpassword" class="form-label">confirm Password</label>
+                <input type="password" class="form-control" id="cpassword" name="cpassword">
+            </div>
+                    <button type="submit" class="btn_btn-primary">Submit</button>
+        </form>
+    </div>
+    </div>
+</main>
 {% endblock body %}
      
