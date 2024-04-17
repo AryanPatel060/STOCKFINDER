@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block body %}
-<div class="container">
+<div class="container_signup">
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -8,7 +8,7 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <div class="card p-4 m-5" style="max-width: 500px;">
+    <div class="card p-4 m-5" style="max-width: 550px;">
         <h1>signup</h1>
         <form action="{% url 'signupshop' %}" method="Post">
             {% csrf_token %}
@@ -28,7 +28,7 @@
             <label for="cpassword" class="form-label">confirm Password</label>
             <input type="password" class="form-control" id="cpassword" name="cpassword">
         </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn_btn-primary">Submit</button>
     </form>
 </div>
 </div>

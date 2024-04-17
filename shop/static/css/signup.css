@@ -1,0 +1,23 @@
+.container_signup{
+    display: flex;
+    justify-content: center;
+}
+.form-control{
+    background-color:#f0e8f6;
+height:40px;
+width:502px;
+border-radius:13px;
+border-width: 0px;
+padding: 20px;
+}
+.btn_btn-primary{
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #8b30c2;
+    background-color: white;
+    border: 2px solid #8b30c2;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 105px;
+}
