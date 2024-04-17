@@ -4,13 +4,13 @@
 
 
 <div class="container_adddetail">
-    <div class="card p-4 m-5" style="max-width: 550px;">
-        <h1>shop data</h1>
+    <div class="card p-4 m-5" style="max-width: 800px;">
+        <h1 class="welcometitle">Welcome to product finder !<br>Register your shop to boost your sell.</h1>
             <form action="{% url "AddShopData" %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_p}}
             <label for="location" class="form-label">Location</label>
-            <div id="map" class="m-2 border" style="height:200px ; width:400px;"></div>
+            <div id="map" class="m-2 border" style="height:400px ; width:600px;"></div>
             <div class="mt-3">
                 <button type="submit" class="btn_btn-primary_signup">Submit</button>
             </div>    
