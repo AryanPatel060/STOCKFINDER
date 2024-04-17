@@ -1,0 +1,19 @@
+.container_adddetail{
+    display: flex;
+    justify-content: center;
+}
+.container_additem{
+    display: flex;
+    justify-content: center;
+}
+.btn_btn-primary_signup{
+    color: white;
+    border: 3px solid #8b30c2;
+    background-color: #8b30c2;
+    padding: 8px 10px;
+    text-decoration: none;
+    border-radius: 15px;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 105px;
+}
