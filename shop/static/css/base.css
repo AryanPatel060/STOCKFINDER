@@ -44,13 +44,13 @@ width:261px;
 .ellipse1
 {
 /* background-color:#DBB1F5; */
-height: 652px;
-    width: 820px;
-    top: 3px;
-    position: absolute;
+height:685px;
+    width:650px;
+left:0px;
+    top:63px;
+    position:absolute;
     z-index: -1;
-    left: -385px;
-}
+    }
 main{
     display: flex;
     justify-content: space-between;
@@ -183,10 +183,4 @@ position:relative;
     text-align: center;
     transition: background-color 0.3s;
     width: 80px;
-}
-.line {
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    border: 0;
-    border-top: 2px solid #b772e2;
 }

@@ -17,3 +17,29 @@
     transition: background-color 0.3s;
     width: 105px;
 }
+.welcometitle{
+    color: #8b30c2;
+    text-align: center;
+    font-size: 35px;
+}
+form p{
+    display: flex;
+    justify-content: space-between;
+}
+input[type="file"] {
+    background-color:#f0e8f6;
+height:50px;
+width:500px;
+border-radius:13px;
+padding: 10px;
+}
+
+.productdetail{
+    color: #8b30c2;
+    text-align: center;
+    font-size: 35px;
+}
+.mt-3{
+    display: flex;
+    justify-content: center;
+}

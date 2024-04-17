@@ -1,7 +1,12 @@
 .container_signup{
     display: flex;
     justify-content: center;
+    margin: 80px 50px 50px;
+    width: 700px;
+    height: 600px;
+    padding: 20px 50px;
 }
+
 .form-control{
     background-color:#f0e8f6;
 height:40px;
@@ -20,4 +25,18 @@ padding: 20px;
     text-align: center;
     transition: background-color 0.3s;
     width: 105px;
+}
+.ellipse1
+{
+/* background-color:#DBB1F5; */
+height:685px;
+    width:650px;
+left:0px;
+    top:63px;
+    position:absolute;
+    z-index: -1;
+}
+.container2_signup{
+    border: none;
+
 }
