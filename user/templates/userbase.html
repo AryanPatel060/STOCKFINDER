@@ -6,31 +6,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/static/css/user.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Limelight' >
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Heebo' >
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Inter' >
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg">
+  <body style="background-color: #F1F7F7;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
         <div class="container-fluid">
-          <a class="aryan navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">product finder</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url "userhome" %}">Home</a>
-              </li>
-             
-             
-            </ul>
+           
           </div>
         </div>
       </nav>
+      <hr class="line">
       {% block body %}
       
       {% endblock body %}

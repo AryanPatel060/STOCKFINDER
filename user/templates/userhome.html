@@ -1,34 +1,37 @@
 {% extends "userbase.html" %}
 {% block body %}
 <div class="container">
-  <div class="card p-4 m-5" style="max-width: 500px;">
-    <h1>Search</h1>
+  <div class="container1" >
+    <!-- <h1>Search</h1> -->
     <form class="d-flex" action="{% url "userhome" %}" method="POST" enctype="multipart/form-data" role="search">
       {% csrf_token %}
       <input class="form-control me-2" type="search" placeholder="Search" name='search' aria-label="Search">
       <input class="form-control me-2" type="hidden" id='latitude' name='latitude'>
       <input class="form-control me-2" type="hidden" id='longitude' name='longitude'>
-      <button class="btn btn-outline-success" type="submit">Search</button>
+      <button class=" btn-purple" type="submit">Search</button>
     </form>
   </div>
-  <div id="map2" style="height:300px ; width:600px;"></div>
-
-  {{ location_data | json_script:"location_data"}}
+  </div>
+  <div class="d-flex">
+  <div>
+    
+    {{ location_data | json_script:"location_data"}}
   {% for key , value in sorted_location.items %}
 
-  <div class="card mb-3" style="max-width: 540px;">
+  <div class=" m-3 left purple cards">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-md-4 top ">
 
         <img src=".{{value.item_img_url}}" class="img-fluid rounded-start" alt="...">
       </div>
 
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{value.shop_name}}</h5>
-          <p class="card-text">{{key}} km</p>
+          <h5 class="card-title font">{{value.shop_name}}</h5>
+          <p class="card-text font">{{key}} km</p>
           <p class="card-text"><small class="text-body-secondary"></small></p>
-          <a class="btn btn-primary" href="getroute?shop_id={{value.shop_id}}"  >Route</a>
+          
+          <a class="button-purple" href="getroute?shop_id={{value.shop_id}}"  >view</a>
           {% comment %} <a class="btn btn-primary" onclick="getroute({{value.shop_id}})">Route</a> {% endcomment %}
 
         </div>
@@ -36,6 +39,9 @@
     </div>
   </div>
   {% endfor %}
+</div>
+<div id="map2"  class= "map " ></div>
+</div>
 </div>
 
 <script>
