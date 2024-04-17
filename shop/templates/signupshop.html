@@ -6,8 +6,6 @@
         <img id='clip' class='clip' src="/static/image/clip.png">
     </div>
 
-
-
     <div class="container_signup">
         {% if messages %}
         <ul class="messages">
@@ -16,7 +14,7 @@
             {% endfor %}
         </ul>
         {% endif %}
-        <div class="card p-4 m-5" style="max-width: 600px;">
+        <div class="container2_signup" style="max-width: 600px;">
             <h1 >signup</h1>
             <form action="{% url 'signupshop' %}" method="Post">
                 {% csrf_token %}
@@ -37,8 +35,8 @@
                 <input type="password" class="form-control" id="cpassword" name="cpassword">
             </div>
                     <button type="submit" class="btn_btn-primary">Submit</button>
-        </form>
-    </div>
+            </form>
+        </div>
     </div>
 </main>
 {% endblock body %}

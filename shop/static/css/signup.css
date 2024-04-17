@@ -1,7 +1,10 @@
 .container_signup{
     display: flex;
     justify-content: center;
-    
+    margin: 80px 50px 50px;
+    width: 700px;
+    height: 600px;
+    padding: 20px 50px;
 }
 
 .form-control{
@@ -33,4 +36,7 @@ left:0px;
     position:absolute;
     z-index: -1;
 }
+.container2_signup{
+    border: none;
 
+}
