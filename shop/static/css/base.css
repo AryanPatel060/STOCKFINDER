@@ -45,12 +45,12 @@ width:261px;
 {
 /* background-color:#DBB1F5; */
 height:685px;
-width:650px;
+    width:650px;
 left:0px;
-top:63px;
-position:absolute;
-z-index: -1;
-}
+    top:63px;
+    position:absolute;
+    z-index: -1;
+    }
 main{
     display: flex;
     justify-content: space-between;
