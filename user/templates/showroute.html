@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block body %}
+{% extends "userbase.html" %} 
+{% block body %}
 
 <div class="container">
   <div id="map2" style="height: 300px; width: 600px"></div>
@@ -21,6 +22,21 @@
       class="img-fluid rounded-start"
       alt="..."
     />
+
+    <h5>Item Data: {{ item_info.item_name}}</h5>
+    <h5>Item brand: {{ item_info.brand}}</h5>
+
+    <h5>Item modal_no: {{ item_info.modal_no}}</h5>
+
+    <h5>Item price: {{ item_info.price}}</h5>
+
+    <h5>Item item_image: {{ item_info.item_image.url}}</h5>
+    <h5>Item quantity: {{ item_info.quantity}}</h5>
+
+    <h5>Shop Img :</h5>
+
+    <img src=".{{item_info.item_image.url}}" class="img-fluid rounded-start" alt="...">
+    
   </div>
 </div>
 

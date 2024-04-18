@@ -18,9 +18,10 @@ def userhome(request):
         location_data_without_img = []
         for item in items:
 
+            # print(item.id)
             shop = item.shop_id
             item_img_url = item.item_image.url 
-
+            item_id = item.id
             shop_user  = User.objects.get(username = shop)
             shop_user_id = shop_user.id
             shop_name  = shop_user.username
@@ -29,6 +30,7 @@ def userhome(request):
             shop_location =  {
                 'shop_id':shop_user_id,
                 'shop_name':shop_name,
+                'item_id':item_id,
                 'latitude' : shop_info.latitude, 
                 'longitude' : shop_info.longitude}
             
@@ -46,6 +48,7 @@ def userhome(request):
             distance = round(distance, 3)
             station_data  = { 'shop_name' : station['shop_name'],
                              'shop_id':station['shop_id'],
+                             'item_id':station['item_id'],
                              'item_img_url' : station['item_img_url'],
                              'latitude' : station_location[0],
                              'longitude' : station_location[1]}
@@ -63,6 +66,9 @@ def userhome(request):
 
 def getroute(request):
 
+    item_id= request.GET.get('item_id')
+    item_info = Item.objects.get(id = item_id)
+    # print(shop_id)
     shop_id = request.GET.get('shop_id')
     shop_info = Shop.objects.get(user = shop_id)
     user_location = request.session["user_location"]
@@ -76,7 +82,7 @@ def getroute(request):
                     'distance' : distance,
                     }
     
-    return render(request, 'showroute.html' , context = {'shop_location':shop_location,'shop_info':shop_info})
+    return render(request, 'showroute.html' , context = {'shop_location':shop_location,'shop_info':shop_info,'item_info':item_info})
 
 def getroute2(request):
 

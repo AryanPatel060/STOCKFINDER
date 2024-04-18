@@ -17,11 +17,9 @@
     
     {{ location_data | json_script:"location_data"}}
   {% for key , value in sorted_location.items %}
-
   <div class=" m-3 left purple cards">
     <div class="row g-0">
       <div class="col-md-4 top ">
-
         <img src=".{{value.item_img_url}}" class="img-fluid rounded-start" alt="...">
       </div>
 
@@ -29,9 +27,13 @@
         <div class="card-body">
           <h5 class="card-title font">{{value.shop_name}}</h5>
           <p class="card-text font">{{key}} km</p>
+          <p class="card-text font">{{value.item_id}}</p>
+          <p class="card-text font">{{value.shop_id}}</p>
+
+
           <p class="card-text"><small class="text-body-secondary"></small></p>
           
-          <a class="button-purple" href="getroute?shop_id={{value.shop_id}}"  >view</a>
+          <a class="button-purple" href="getroute?item_id={{value.item_id}}&shop_id={{value.shop_id}}"  >view</a>
           {% comment %} <a class="btn btn-primary" onclick="getroute({{value.shop_id}})">Route</a> {% endcomment %}
 
         </div>
@@ -40,7 +42,7 @@
   </div>
   {% endfor %}
 </div>
-<div id="map2"  class= "map " ></div>
+<div id="map2"  class= "map" ></div>
 </div>
 </div>
 
