@@ -20,12 +20,12 @@ def userhome(request):
         location_data = []
         location_data_without_img = []
 
-        p = Paginator(items, 1) 
-        page = request.GET.get('page')
-        shops = p.get_page(page)
-        print(shops)
+        # p = Paginator(items, 1) 
+        # page = request.GET.get('page')
+        # shops = p.get_page(page)
+        # print(shops)
 
-        for item in shops:
+        for item in items:
             # print(item.id)
             shop = item.shop_id
             item_img_url = item.item_image.url 
@@ -68,7 +68,9 @@ def userhome(request):
         # print(station_distance)
         sorted_location = dict(sorted(station_distance.items(), key=lambda item: item[0]))
         # print(sorted_location)
-        return render(request  , 'userhome.html' , context= {'sorted_location'  : sorted_location , 'location_data' :location_data_without_img , 'products':shops})
+        return render(request  , 'userhome.html' , context= {'sorted_location'  : sorted_location , 'location_data' :location_data_without_img 
+                                                            #  ,'products':shops
+                                                             })
        
     return render(request, 'userhome.html')
 

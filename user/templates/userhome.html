@@ -56,7 +56,9 @@
     </div>
   </div>
   {% endfor %}
-  <div class="pagination">
+
+  {% comment %} ---------------------code for pagination --------------------- {% endcomment %}
+  {% comment %} <div class="pagination">
     <span class="step-links">
         {% if products.has_previous %}
             <a href="?search={{ request.GET.search|urlencode }}&page=1">&laquo; first</a>
@@ -72,7 +74,10 @@
             <a href="?search={{ request.GET.search|urlencode }}&page={{ products.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
     </span>
-</div>
+</div> {% endcomment %}
+  {% comment %} ---------------------code for pagination --------------------- {% endcomment %}
+  
+
 </div>
   
 <div id="map2"  class= "map" ></div>
