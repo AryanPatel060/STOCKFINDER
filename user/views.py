@@ -2,22 +2,30 @@ from django.http import JsonResponse
 from django.shortcuts import render,HttpResponse,redirect
 from shop.models import Shop,Item,User
 from geopy import distance as dst
+from django.core.paginator import Paginator
 
 # Create your views here.
-
 def userhome(request):
-    if request.method == 'POST':
-        search = request.POST.get('search')
-        latitude = request.POST.get('latitude')
-        longitude = request.POST.get('longitude')
+    if request.method == 'GET':
+        search = request.GET.get('search')
+        if  not search:
+            return render(request, 'userhome.html')
+        latitude = request.GET.get('latitude')
+        longitude = request.GET.get('longitude')
         user_location = latitude,longitude
         request.session["user_location"] = user_location
         items = Item.objects.filter(item_name__icontains=search)
-
+        print(items)
+        
         location_data = []
         location_data_without_img = []
-        for item in items:
 
+        p = Paginator(items, 1) 
+        page = request.GET.get('page')
+        shops = p.get_page(page)
+        print(shops)
+
+        for item in shops:
             # print(item.id)
             shop = item.shop_id
             item_img_url = item.item_image.url 
@@ -60,7 +68,7 @@ def userhome(request):
         # print(station_distance)
         sorted_location = dict(sorted(station_distance.items(), key=lambda item: item[0]))
         # print(sorted_location)
-        return render(request  , 'userhome.html' , context= {'sorted_location'  : sorted_location , 'location_data' :location_data_without_img })
+        return render(request  , 'userhome.html' , context= {'sorted_location'  : sorted_location , 'location_data' :location_data_without_img , 'products':shops})
        
     return render(request, 'userhome.html')
 

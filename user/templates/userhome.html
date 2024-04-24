@@ -3,15 +3,30 @@
 <div class="container">
   <div class="container1" >
     <!-- <h1>Search</h1> -->
-    <form class="d-flex" action="{% url "userhome" %}" method="POST" enctype="multipart/form-data" role="search">
+    <form class="d-flex" action="{% url "userhome" %}" method="GET" enctype="multipart/form-data" role="search">
       {% csrf_token %}
       <input class="form-control me-2" type="search" placeholder="Search" name='search' aria-label="Search">
       <input class="form-control me-2" type="hidden" id='latitude' name='latitude'>
       <input class="form-control me-2" type="hidden" id='longitude' name='longitude'>
       <button class=" btn-purple" type="submit">Search</button>
     </form>
+
+  </div>
+
+  <div class="container1 my-5" >
+    <form class="d-flex" action="{% url "userhome" %}" method="GET" enctype="multipart/form-data" role="search">
+      {% csrf_token %}
+      <input class="form-control me-2" type="search" placeholder="List Search" name='search' aria-label="Search">
+      <input class="form-control me-2" type="hidden" id='latitude' name='latitude'>
+      <input class="form-control me-2" type="hidden" id='longitude' name='longitude'>
+      <button class=" btn-purple" type="submit">Search</button>
+    </form>
+
   </div>
   </div>
+
+
+  
   <div class="d-flex">
   <div>
     
@@ -41,7 +56,25 @@
     </div>
   </div>
   {% endfor %}
+  <div class="pagination">
+    <span class="step-links">
+        {% if products.has_previous %}
+            <a href="?search={{ request.GET.search|urlencode }}&page=1">&laquo; first</a>
+            <a href="?search={{ request.GET.search|urlencode }}&page={{ products.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}.
+        </span>
+
+        {% if products.has_next %}
+            <a href="?search={{ request.GET.search|urlencode }}&page={{ products.next_page_number }}">next</a>
+            <a href="?search={{ request.GET.search|urlencode }}&page={{ products.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
 </div>
+</div>
+  
 <div id="map2"  class= "map" ></div>
 </div>
 </div>
