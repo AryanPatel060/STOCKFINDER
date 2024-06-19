@@ -49,6 +49,8 @@ def loginshop(request):
        return render(request,'loginshop.html')
 
 
+
+
 def signupshop(request):
     if request.user.is_authenticated:
            return redirect("home")
